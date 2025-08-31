@@ -27,6 +27,10 @@ while repeat_prompt == "sim":
     pc_choice = random.choice(plays)
     user_choice = input("\nPedra, papel ou tesoura? ").lower()
 
+    if user_choice not in plays:
+        print("\nJogada inválida, tente novamente!")
+        continue
+
     print(user_nick +":", user_choice)
     time.sleep(1)
     print("X")
@@ -47,7 +51,7 @@ while repeat_prompt == "sim":
     
     repeat_prompt = input("\nJogar de novo? \nSim/Não: ").lower()
 
-    if repeat_prompt == "não" or "nao":
+    if repeat_prompt == "não" or repeat_prompt == "nao":
         print("\nAté a próxima!")
         print(f"\nPontos\n{user_nick}: {user_points}\nComputador: {pc_points}")
     elif repeat_prompt != "sim":
